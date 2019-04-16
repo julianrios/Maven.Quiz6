@@ -27,7 +27,11 @@ public class StringUtils {
      * @return near-identical string whose characters at specified indices are capitalized
      */
     public static String upperCaseIndices(String string, Integer... indices) {
-        return null;
+        StringBuilder stringBuilder = new StringBuilder(string);
+        for (int i = 0; i < indices.length; i++) {
+            stringBuilder.setCharAt(indices[i], Character.toUpperCase(stringBuilder.charAt(indices[i])));
+        }
+        return stringBuilder.toString();
     }
 
     /**
@@ -37,7 +41,9 @@ public class StringUtils {
      * @return near-identical string with `valueToBeInserted` inserted at `index`
      */
     public static String insertAtIndex(String stringToBeManipulated, String valueToBeInserted, Integer index) {
-        return null;
+        StringBuilder stringBuilder = new StringBuilder(stringToBeManipulated);
+        stringBuilder.insert(index, valueToBeInserted);
+        return stringBuilder.toString();
     }
 
     /**
@@ -47,6 +53,8 @@ public class StringUtils {
      * @return near-identical string with character at `index` replaced with `replacementValue`
      */
     public static String replaceAtIndex(String stringToBeManipulated, Character replacementValue, Integer index) {
-        return null;
+        StringBuilder stringBuilder = new StringBuilder(stringToBeManipulated);
+        stringBuilder.setCharAt(index, replacementValue);
+        return stringBuilder.toString();
     }
 }
