@@ -1,7 +1,9 @@
 package rocks.zipcode.io.fundamentals;
 
 
+import java.util.Arrays;
 import java.util.Collection;
+import java.util.LinkedList;
 
 /**
  * @author leon on 10/01/2019.
@@ -13,12 +15,36 @@ public class StringUtils {
      */
     public static Collection<String> getAllCasings(String string) {
         // get length of string
+        int length = string.length();
         // get range of length
+        int range = length - 1;
         // get power-set of range
 
         // for every set in power-set
             // uppercase indices of string using set
-        return null;
+        Collection<String> collection = new LinkedList<>();
+
+        char[] array = string.toCharArray();
+        for (int i = 0; i < array.length; i++) {
+             collection.add(capitalizeNthCharacter(string, i));
+        }
+        System.out.println(Arrays.toString(collection.toArray()));
+        return collection;
+    }
+
+    private static String capitalizeNthCharacter(String str, Integer indexToCapitalize) {
+        String afterCapped = "";
+
+        char [] letters = str.toCharArray();
+
+        for(int i = 0; i < letters.length; i++) {
+            if(i == indexToCapitalize) {
+                afterCapped += Character.toUpperCase(letters[i]);
+            } else {
+                afterCapped += letters[i];
+            }
+        }
+        return afterCapped;
     }
 
     /**
